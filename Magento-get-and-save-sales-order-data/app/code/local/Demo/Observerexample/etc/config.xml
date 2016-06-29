@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config>
+  <modules>
+      <Demo_Observerexample>
+          <version>0.0.2</version>
+      </Demo_Observerexample>
+  </modules>
+  <global>
+    <models>
+        <demoautofeedback>
+             <class>Observerexample_Model</class>
+        </demoautofeedback>
+    </models>
+    <events>
+      <checkout_onepage_controller_success_action>
+        <observers>
+          <sales_order_place_before>
+            <type>singleton</type>
+            <class>Demo_Observerexample_Model_Observer</class>
+            <method>send_email</method>
+          </sales_order_place_before>
+        </observers>
+      </checkout_onepage_controller_success_action>     
+    </events>
+  </global>
+</config>
